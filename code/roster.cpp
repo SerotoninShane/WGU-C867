@@ -1,5 +1,6 @@
 #include "roster.h"
 #include <iostream>
+#include <string>
 #include <regex>
 
 // This allows us to avoid using std:: everywhere in the .cpp file

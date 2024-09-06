@@ -93,5 +93,22 @@ void Student::print() {
         if (i < 2) cout << ", ";
     }
     cout << "} \t";
-    cout << "Degree Program: " << degreeProgram << endl;
+    cout << "Degree Program: ";
+
+       switch (degreeProgram) {
+        case SECURITY:
+            cout << "SECURITY";
+            break;
+        case NETWORK:
+            cout << "NETWORK";
+            break;
+        case SOFTWARE:
+            cout << "SOFTWARE";
+            break;
+        default:
+            cout << "UNKNOWN";
+            break;
+    }
+    
+    cout<< endl;
 }

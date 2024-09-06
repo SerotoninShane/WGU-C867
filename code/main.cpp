@@ -24,7 +24,7 @@ int main() {
     };
 
     // Parse student data and add to classRoster
-    classRoster.parseAndAddStudents(studentData, sizeof(studentData));
+    classRoster.parseAndAddStudents(studentData, (sizeof(studentData) / sizeof(studentData[0])));
 
     // 4. Convert pseudo code to complete the rest of the main() function:
 
