@@ -52,7 +52,7 @@ a.  an accessor (i.e., getter) for each instance variable from part D1
 
 b.  a mutator (i.e., setter) for each instance variable from part D1
 
-c.  ☑ All external access and changes to any instance variables of the Student class must be done using accessor and mutator functions.
+c.  All external access and changes to any instance variables of the Student class must be done using accessor and mutator functions.
 
 d.  constructor using all of the input parameters provided in the table
 
@@ -111,4 +111,84 @@ e.  public void printInvalidEmails() that verifies student email addresses and d
     Note: A valid email should include an at sign ('@') and period ('.') and should not include a space (' ').
 
 f.  public void printByDegreeProgram(DegreeProgram degreeProgram) that prints out student information for a degree program specified by an enumerated type.
+
+**Create an array of pointers (classRosterArray) to hold the student data from the “studentData Table.”**
+
+- Implemented an array of pointers to Student objects, classRosterArray[5], in the Roster class.
+- Initialized the array to store nullptr values initially, and later populated it with Student objects.
+
+**Create a Student object for each student in the data table and populate classRosterArray.**
+
+- Each student from the table is parsed and added to classRosterArray using the add() method.
+- The add() method constructs a Student object and assigns it to the array.
+
+**Formatted the following functions:**
+
+**add()**
+
+- Implemented: A public method add() that takes the student data (ID, name, email, age, days in course, degree program) as parameters and adds a new Student object to classRosterArray.
+
+**remove()**
+
+- Implemented: A public method remove() that removes a student from classRosterArray by student ID. If the ID does not exist, an error message is printed.
+
+**printAll()**
+
+- Implemented: A public method printAll() that loops through all students in classRosterArray and calls the print() method for each student to output their information.
+
+**printAverageDaysInCourse()**
+
+- Implemented: A public method printAverageDaysInCourse() that calculates and prints the average number of days in courses for a given student, identified by their student ID.
+
+**printInvalidEmails()**
+
+- Implemented: A public method printInvalidEmails() that checks for invalid email addresses (those missing an @, a . or containing spaces) and prints any invalid emails found.
+
+**printByDegreeProgram()**
+
+- Implemented: A public method printByDegreeProgram() that prints the data of students enrolled in a specified degree program (SECURITY, NETWORK, or SOFTWARE).
+
+## F.
+**Demonstrate the program’s required functionality by adding a main() function in main.cpp, which will contain the required function calls to achieve the following results:**
+
+1.  Print out to the screen, via your application, the course title, the programming language used, your WGU student ID, and your name.
+
+2.  Create an instance of the Roster class called classRoster.
+
+3.  Add each student to classRoster.
+
+4.  Convert the following pseudo code to complete the rest of the  main() function:
+
+classRoster.printAll();
+
+classRoster.printInvalidEmails();
+
+
+
+//loop through classRosterArray and for each element:
+
+classRoster.printAverageDaysInCourse(/*current_object's student id*/);
+
+
+
+Note: For the current_object's student id, use an accessor (i.e., getter) for the classRosterArray to access the student id.
+
+
+
+classRoster.printByDegreeProgram(SOFTWARE);
+
+classRoster.remove("A3");
+
+classRoster.printAll();
+
+classRoster.remove("A3");
+
+//expected: the above line should print a message saying such a student with this ID was not found.
+
+5.  Implement the destructor to release the memory that was allocated dynamically in Roster.
+
+**EACH STEP IS LABELED IN MAIN.CPP**
+
+
+
 
