@@ -5,6 +5,59 @@
 // This allows us to avoid using std:: everywhere in the .cpp file
 using namespace std;
 
+void Roster::parseAndAddStudents(const string studentData[], int size) {
+    for (int i = 0; i < size; ++i) {
+        const string& data = studentData[i];
+        size_t rhs = 0; // Start position
+        size_t lhs = data.find(','); // Position of first comma
+
+        string studentID = data.substr(rhs, lhs - rhs);
+        rhs = lhs + 1;
+        lhs = data.find(',', rhs);
+
+        string firstName = data.substr(rhs, lhs - rhs);
+        rhs = lhs + 1;
+        lhs = data.find(',', rhs);
+
+        string lastName = data.substr(rhs, lhs - rhs);
+        rhs = lhs + 1;
+        lhs = data.find(',', rhs);
+
+        string emailAddress = data.substr(rhs, lhs - rhs);
+        rhs = lhs + 1;
+        lhs = data.find(',', rhs);
+
+        int age = stoi(data.substr(rhs, lhs - rhs));
+        rhs = lhs + 1;
+        lhs = data.find(',', rhs);
+
+        int daysInCourse1 = stoi(data.substr(rhs, lhs - rhs));
+        rhs = lhs + 1;
+        lhs = data.find(',', rhs);
+
+        int daysInCourse2 = stoi(data.substr(rhs, lhs - rhs));
+        rhs = lhs + 1;
+        lhs = data.find(',', rhs);
+
+        int daysInCourse3 = stoi(data.substr(rhs, lhs - rhs));
+        rhs = lhs + 1;
+        lhs = data.find(',', rhs);
+
+        DegreeProgram degreeProgram;
+        string degree = data.substr(rhs, lhs - rhs);
+        if (degree == "SECURITY") {
+            degreeProgram = SECURITY;
+        } else if (degree == "NETWORK") {
+            degreeProgram = NETWORK;
+        } else if (degree == "SOFTWARE") {
+            degreeProgram = SOFTWARE;
+        }
+
+        // Add the student to the roster
+        add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+    }
+}
+
 Roster::Roster() : numStudents(0) {
     for (int i = 0; i < 5; ++i) { // Initialize array to nullptr
         classRosterArray[i] = nullptr;
