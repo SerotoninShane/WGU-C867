@@ -5,6 +5,20 @@
 // This allows us to avoid using std:: everywhere in the .cpp file
 using namespace std;
 
+
+Roster::Roster() : numStudents(0) {
+    for (int i = 0; i < 5; ++i) { // Initialize array to nullptr
+        classRosterArray[i] = nullptr;
+    }
+}
+
+// Destructor
+Roster::~Roster() {
+    for (int i = 0; i < numStudents; ++i) {
+        delete classRosterArray[i];
+    }
+}
+
 void Roster::parseAndAddStudents(const string studentData[], int size) {
     for (int i = 0; i < size; ++i) {
         const string& data = studentData[i];
@@ -55,19 +69,6 @@ void Roster::parseAndAddStudents(const string studentData[], int size) {
 
         // Add the student to the roster
         add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
-    }
-}
-
-Roster::Roster() : numStudents(0) {
-    for (int i = 0; i < 5; ++i) { // Initialize array to nullptr
-        classRosterArray[i] = nullptr;
-    }
-}
-
-// Destructor
-Roster::~Roster() {
-    for (int i = 0; i < numStudents; ++i) {
-        delete classRosterArray[i];
     }
 }
 
@@ -136,4 +137,15 @@ void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
             classRosterArray[i]->print();
         }
     }
+}
+
+int Roster::getNumStudents() const {
+    return numStudents;
+}
+
+string Roster::getStudentID(int index) const {
+    if (index >= 0 && index < numStudents) {
+        return classRosterArray[index]->getStudentID();
+    }
+    return "";
 }
