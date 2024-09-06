@@ -189,6 +189,8 @@ classRoster.remove("A3");
 
 **EACH STEP IS LABELED IN MAIN.CPP**
 
+**In VSC I just used the quick command 'CTRL+SHT+B' to create main.exe; I then, in the terminal, ran it with './main.exe'**
+
 
 
 
